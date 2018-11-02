@@ -19,6 +19,7 @@ class Pokemon
     Pokemon.new({ id: id,
                   name: pokemon_array[1],
                   type: pokemon_array[2],
+                  hp: pokemon_array[3]
                   db: db })
   end
 
