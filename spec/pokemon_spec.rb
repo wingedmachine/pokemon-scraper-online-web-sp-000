@@ -44,6 +44,7 @@ describe "Pokemon" do
 
     before do
       @sql_runner.execute_create_hp_column
+      Pokemon.create_hp
       Pokemon.save('Pikachu', 'electric', @db)
       Pokemon.save('Magikarp', 'water', @db)
     end
