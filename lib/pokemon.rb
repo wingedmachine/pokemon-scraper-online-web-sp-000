@@ -1,6 +1,8 @@
 class Pokemon
   attr_reader :id, :name, :type, :hp, :db
 
+  @@hp_exists = false
+
   def initialize(hash)
     @id = hash[:id]
     @name = hash[:name]
@@ -14,7 +16,9 @@ class Pokemon
   end
 
   def self.find(id, db)
-    select_statement = "SELECT id, name, type, hp FROM pokemon WHERE id = #{id}"
+    select_statement = "SELECT id, name, type, #{@@hp_exists ? "hp" : ""} " \
+                        "FROM pokemon WHERE id = #{id}"
+    binding.pry
     pokemon_array = db.execute(select_statement).first
     Pokemon.new({ id: id,
                   name: pokemon_array[1],
