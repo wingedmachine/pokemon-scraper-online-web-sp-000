@@ -14,7 +14,7 @@ class Pokemon
   end
 
   def self.find(id, db)
-    select_statement = "SELECT id, name, type FROM pokemon WHERE id = #{id}"
+    select_statement = "SELECT id, name, type, hp FROM pokemon WHERE id = #{id}"
     pokemon_array = db.execute(select_statement).first
     Pokemon.new({ id: id,
                   name: pokemon_array[1],
@@ -26,6 +26,5 @@ class Pokemon
   def alter_hp(new_hp_value, db)
     @hp = new_hp_value
     db.execute("UPDATE pokemon SET hp = #{new_hp_value} WHERE id = #{@id}")
-    binding.pry
   end
 end
