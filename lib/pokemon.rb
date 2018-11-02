@@ -20,4 +20,8 @@ class Pokemon
                   type: pokemon_array[2],
                   db: db })
   end
+
+  def alter_hp(new_hp_value, db)
+    db.execute("UPDATE pokemon SET hp = #{new_hp_value} WHERE id = #{@id}")
+  end
 end
