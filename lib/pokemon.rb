@@ -1,10 +1,11 @@
 class Pokemon
-  attr_reader :id, :name, :type, :db
+  attr_reader :id, :name, :type, :hp, :db
 
   def initialize(hash)
     @id = hash[:id]
     @name = hash[:name]
     @type = hash[:type]
+    @hp = hash[:hp]
     @db = hash[:db]
   end
 
