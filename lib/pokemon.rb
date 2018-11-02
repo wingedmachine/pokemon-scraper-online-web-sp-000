@@ -2,6 +2,9 @@ class Pokemon
   attr_reader :id, :name, :type, :hp, :db
 
   @@hp_exists = false
+  def self.create_hp
+    @@hp_exists = true
+  end
 
   def initialize(hash)
     @id = hash[:id]
