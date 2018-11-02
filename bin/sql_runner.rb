@@ -11,7 +11,6 @@ class SQLRunner
   def execute_create_hp_column
     sql = File.read('db/alter_table_migration.sql')
     execute_sql(sql)
-    binding.pry
   end
 
   def execute_sql(sql)
