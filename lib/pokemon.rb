@@ -16,7 +16,7 @@ class Pokemon
   end
 
   def self.find(id, db)
-    select_statement = "SELECT id, name, type, #{@@hp_exists ? "hp" : ""} " \
+    select_statement = "SELECT id, name, type#{@@hp_exists ? ", hp" : ""} " \
                         "FROM pokemon WHERE id = #{id}"
     binding.pry
     pokemon_array = db.execute(select_statement).first
