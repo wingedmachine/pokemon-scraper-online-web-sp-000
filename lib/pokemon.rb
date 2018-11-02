@@ -13,7 +13,11 @@ class Pokemon
   end
 
   def self.find(id, db)
-    wert = db.execute("SELECT id, name, type FROM pokemon WHERE id = #{id}")
-    binding.pry
+    select_statement = "SELECT id, name, type FROM pokemon WHERE id = #{id}"
+    pokemon_array = db.execute(select_statement).first
+    Pokemon.new({ id: id,
+                  name: pokemon_array[1],
+                  type: pokemon_array[2],
+                  db: db })
   end
 end
