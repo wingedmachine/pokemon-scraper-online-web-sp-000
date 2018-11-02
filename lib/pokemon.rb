@@ -14,5 +14,6 @@ class Pokemon
 
   def self.find(id, db)
     wert = db.execute("SELECT id, name, type FROM pokemon WHERE id = #{id}")
+    binding.pry
   end
 end
